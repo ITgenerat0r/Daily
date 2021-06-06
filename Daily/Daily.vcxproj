@@ -120,9 +120,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Add.cpp" />
+    <ClCompile Include="Delete.cpp" />
+    <ClCompile Include="Find.cpp" />
     <ClCompile Include="MyForm1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Add.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Delete.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Find.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm1.h">
       <FileType>CppForm</FileType>
     </ClInclude>

@@ -11,3 +11,23 @@ void main(array<String^>^ args) {
 	Daily::MyForm form;
 	Application::Run(% form); 
 }
+
+System::Void Daily::MyForm::‚˚ıÓ‰ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	Application::Exit();
+}
+
+System::Void Daily::MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	return System::Void();
+}
+
+System::Void Daily::MyForm::button2_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	return System::Void();
+}
+
+System::Void Daily::MyForm::button3_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	return System::Void();
+}

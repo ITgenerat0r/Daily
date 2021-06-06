@@ -39,6 +39,8 @@ namespace Daily {
 	private: System::Windows::Forms::ToolStripMenuItem^ ‚˚ıÓ‰ToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ÓœÓ„‡ÏÏÂToolStripMenuItem;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button3;
 
 	private:
 		/// <summary>
@@ -57,6 +59,8 @@ namespace Daily {
 			this->‚˚ıÓ‰ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ÓœÓ„‡ÏÏÂToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -77,6 +81,7 @@ namespace Daily {
 			this->‚˚ıÓ‰ToolStripMenuItem->Name = L"‚˚ıÓ‰ToolStripMenuItem";
 			this->‚˚ıÓ‰ToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->‚˚ıÓ‰ToolStripMenuItem->Text = L"¬˚ıÓ‰";
+			this->‚˚ıÓ‰ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::‚˚ıÓ‰ToolStripMenuItem_Click);
 			// 
 			// ÓœÓ„‡ÏÏÂToolStripMenuItem
 			// 
@@ -86,18 +91,47 @@ namespace Daily {
 			// 
 			// button1
 			// 
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
 			this->button1->Location = System::Drawing::Point(723, 57);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(102, 39);
+			this->button1->Size = System::Drawing::Size(107, 43);
 			this->button1->TabIndex = 1;
-			this->button1->Text = L"button1";
+			this->button1->Text = L"ƒÓ·‡‚ËÚ¸";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			// 
+			// button2
+			// 
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button2->Location = System::Drawing::Point(723, 106);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(107, 43);
+			this->button2->TabIndex = 2;
+			this->button2->Text = L"”‰‡ÎËÚ¸";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			// 
+			// button3
+			// 
+			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button3->Location = System::Drawing::Point(723, 155);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(107, 43);
+			this->button3->TabIndex = 3;
+			this->button3->Text = L"Õ‡ÈÚË";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(874, 433);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
@@ -110,5 +144,10 @@ namespace Daily {
 
 		}
 #pragma endregion
-	};
+	private: System::Void ‚˚ıÓ‰ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
+};
 }
