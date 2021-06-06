@@ -12,10 +12,10 @@ namespace Daily {
 	/// <summary>
 	/// Ñâîäêà äëÿ MyForm
 	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
+	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void)
+		MainForm(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace Daily {
 		/// <summary>
 		/// Îñâîáîäèòü âñå èñïîëüçóåìûå ğåñóğñû.
 		/// </summary>
-		~MyForm()
+		~MainForm()
 		{
 			if (components)
 			{
@@ -81,13 +81,14 @@ namespace Daily {
 			this->âûõîäToolStripMenuItem->Name = L"âûõîäToolStripMenuItem";
 			this->âûõîäToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->âûõîäToolStripMenuItem->Text = L"Âûõîä";
-			this->âûõîäToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âûõîäToolStripMenuItem_Click);
+			this->âûõîäToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::âûõîäToolStripMenuItem_Click);
 			// 
 			// îÏğîãğàììåToolStripMenuItem
 			// 
 			this->îÏğîãğàììåToolStripMenuItem->Name = L"îÏğîãğàììåToolStripMenuItem";
 			this->îÏğîãğàììåToolStripMenuItem->Size = System::Drawing::Size(94, 20);
 			this->îÏğîãğàììåToolStripMenuItem->Text = L"Î ïğîãğàììå";
+			this->îÏğîãğàììåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::îÏğîãğàììåToolStripMenuItem_Click);
 			// 
 			// button1
 			// 
@@ -99,7 +100,7 @@ namespace Daily {
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Äîáàâèòü";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
 			// 
 			// button2
 			// 
@@ -111,7 +112,7 @@ namespace Daily {
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Óäàëèòü";
 			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			this->button2->Click += gcnew System::EventHandler(this, &MainForm::button2_Click);
 			// 
 			// button3
 			// 
@@ -123,7 +124,7 @@ namespace Daily {
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Íàéòè";
 			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
+			this->button3->Click += gcnew System::EventHandler(this, &MainForm::button3_Click);
 			// 
 			// MyForm
 			// 
@@ -149,5 +150,6 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void îÏğîãğàììåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
