@@ -61,6 +61,8 @@ namespace Daily {
 			// 
 			// textBox1
 			// 
+			this->textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->textBox1->Location = System::Drawing::Point(12, 12);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(198, 20);
@@ -68,6 +70,7 @@ namespace Daily {
 			// 
 			// button1
 			// 
+			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button1->Location = System::Drawing::Point(228, 12);
@@ -80,6 +83,9 @@ namespace Daily {
 			// 
 			// listBox1
 			// 
+			this->listBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->listBox1->FormattingEnabled = true;
 			this->listBox1->Location = System::Drawing::Point(12, 68);
 			this->listBox1->Name = L"listBox1";
@@ -88,6 +94,7 @@ namespace Daily {
 			// 
 			// button2
 			// 
+			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button2->Location = System::Drawing::Point(228, 235);
@@ -102,12 +109,14 @@ namespace Daily {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(358, 273);
+			this->ClientSize = System::Drawing::Size(358, 276);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
+			this->MinimumSize = System::Drawing::Size(374, 314);
 			this->Name = L"Find";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Find";
 			this->ResumeLayout(false);
 			this->PerformLayout();
