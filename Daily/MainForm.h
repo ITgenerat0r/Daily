@@ -72,7 +72,7 @@ namespace Daily {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(874, 24);
+			this->menuStrip1->Size = System::Drawing::Size(905, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -95,7 +95,7 @@ namespace Daily {
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(723, 57);
+			this->button1->Location = System::Drawing::Point(754, 57);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(107, 43);
 			this->button1->TabIndex = 1;
@@ -108,7 +108,7 @@ namespace Daily {
 			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(723, 106);
+			this->button2->Location = System::Drawing::Point(754, 106);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(107, 43);
 			this->button2->TabIndex = 2;
@@ -121,7 +121,7 @@ namespace Daily {
 			this->button3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button3->Location = System::Drawing::Point(723, 155);
+			this->button3->Location = System::Drawing::Point(754, 155);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(107, 43);
 			this->button3->TabIndex = 3;
@@ -133,12 +133,13 @@ namespace Daily {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(874, 433);
+			this->ClientSize = System::Drawing::Size(905, 418);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
+			this->MinimumSize = System::Drawing::Size(483, 293);
 			this->Name = L"MainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Μενώ";

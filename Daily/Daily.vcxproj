@@ -124,7 +124,9 @@
   <ItemGroup>
     <ClCompile Include="Add.cpp" />
     <ClCompile Include="Delete.cpp" />
+    <ClCompile Include="Dt.cpp" />
     <ClCompile Include="Find.cpp" />
+    <ClCompile Include="function.cpp" />
     <ClCompile Include="MainForm.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -134,9 +136,11 @@
     <ClInclude Include="Delete.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Dt.h" />
     <ClInclude Include="Find.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="function.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

@@ -74,6 +74,7 @@ namespace Daily {
 			// 
 			// button1
 			// 
+			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button1->Location = System::Drawing::Point(234, 124);
@@ -132,6 +133,7 @@ namespace Daily {
 			this->Name = L"Delete";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Delete";
+			this->Load += gcnew System::EventHandler(this, &Delete::Delete_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -139,5 +141,6 @@ namespace Daily {
 #pragma endregion
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Delete_Load(System::Object^ sender, System::EventArgs^ e) {}
 };
 }
