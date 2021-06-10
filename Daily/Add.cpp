@@ -1,12 +1,15 @@
 #include "Add.h"
 #include "MainForm.h"
-#include <iostream>
-
+//#include <iostream>
+#include "function.h"
+#include <string>
 
 
 System::Void Daily::Add::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    System::String^ date = textBox1->Text->ToString();
+    std::string date;
+    Convert_String_to_string(textBox1->Text->ToString(), date);
+    //System::String^ date = textBox1->Text->ToString();
     MainForm^ form = gcnew MainForm();
     this->Hide();
     form->Show();

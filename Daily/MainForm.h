@@ -41,6 +41,8 @@ namespace Daily {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
 
 	private:
 		/// <summary>
@@ -61,7 +63,10 @@ namespace Daily {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->menuStrip1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -72,7 +77,7 @@ namespace Daily {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(905, 24);
+			this->menuStrip1->Size = System::Drawing::Size(941, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -95,7 +100,7 @@ namespace Daily {
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(754, 57);
+			this->button1->Location = System::Drawing::Point(790, 57);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(107, 43);
 			this->button1->TabIndex = 1;
@@ -108,7 +113,7 @@ namespace Daily {
 			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(754, 106);
+			this->button2->Location = System::Drawing::Point(790, 106);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(107, 43);
 			this->button2->TabIndex = 2;
@@ -121,7 +126,7 @@ namespace Daily {
 			this->button3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button3->Location = System::Drawing::Point(754, 155);
+			this->button3->Location = System::Drawing::Point(790, 155);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(107, 43);
 			this->button3->TabIndex = 3;
@@ -129,11 +134,23 @@ namespace Daily {
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MainForm::button3_Click);
 			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Location = System::Drawing::Point(12, 27);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(736, 379);
+			this->dataGridView1->TabIndex = 4;
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(905, 418);
+			this->ClientSize = System::Drawing::Size(941, 418);
+			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -144,8 +161,10 @@ namespace Daily {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Ìåíþ";
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
+			this->Shown += gcnew System::EventHandler(this, &MainForm::MainForm_Shown);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -159,5 +178,8 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void îÏðîãðàììåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
 }
+private: System::Void MainForm_Shown(System::Object^ sender, System::EventArgs^ e);
+	private: void Header();
+	private: void Show();
 };
 }

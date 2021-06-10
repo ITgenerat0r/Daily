@@ -32,7 +32,6 @@ public:
 
 
 	bool Is_next_sumbol_number(std::istream& c) {
-		// cout << " Is_next_sumbol_number: " << c.peek() << " " << (char)c.peek() << endl;
 		if (c.peek() > 47 && c.peek() < 58 || c.peek() == 45 || c.peek() == 43) {
 			return true;
 		}
@@ -85,16 +84,6 @@ public:
 		return false;
 	};
 
-	// bool operator<(const Date& date){
- //    if(GetYear()<date.GetYear()){
- //        return true;
- //    } else if (GetYear()<date.GetMonth()){
- //        return true;
- //    } else if (GetYear() < date.GetDay()){
- //        return true;
- //    }
- //    return false;
-	// };
 
 private:
 	int year;
@@ -104,9 +93,6 @@ private:
 
 
 
-// bool operator< (const Date& lhs, const Date& rhs) {
-// 	return lhs.GetYear() * 372 + lhs.GetMonth() * 31 + lhs.GetDay() < rhs.GetYear() * 372 + rhs.GetMonth() * 31 + rhs.GetDay();
-// };
 
 bool operator< (const Date& lhs, const Date& rhs);
 
