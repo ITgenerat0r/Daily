@@ -81,7 +81,7 @@ namespace Daily {
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(274, 18);
+			this->button1->Location = System::Drawing::Point(274, 19);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(102, 26);
 			this->button1->TabIndex = 1;
@@ -95,9 +95,9 @@ namespace Daily {
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(12, 81);
+			this->listBox1->Location = System::Drawing::Point(12, 68);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(364, 147);
+			this->listBox1->Size = System::Drawing::Size(364, 160);
 			this->listBox1->TabIndex = 2;
 			// 
 			// button2
@@ -116,7 +116,7 @@ namespace Daily {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(15, 8);
+			this->label1->Location = System::Drawing::Point(9, 8);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(34, 13);
 			this->label1->TabIndex = 4;
@@ -125,7 +125,7 @@ namespace Daily {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(77, 8);
+			this->label2->Location = System::Drawing::Point(53, 8);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(40, 13);
 			this->label2->TabIndex = 5;
@@ -134,7 +134,7 @@ namespace Daily {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(136, 8);
+			this->label3->Location = System::Drawing::Point(97, 8);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(25, 13);
 			this->label3->TabIndex = 6;
@@ -142,14 +142,14 @@ namespace Daily {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(73, 24);
+			this->textBox2->Location = System::Drawing::Point(56, 24);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(38, 20);
 			this->textBox2->TabIndex = 7;
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(139, 24);
+			this->textBox3->Location = System::Drawing::Point(100, 24);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(62, 20);
 			this->textBox3->TabIndex = 8;

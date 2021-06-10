@@ -20,11 +20,11 @@ System::Void Daily::Delete::checkBox1_CheckedChanged(System::Object^ sender, Sys
 {
     if(checkBox1->Checked){
         //MessageBox::Show("true", "info");
-        textBox1->Visible = false;
+        listBox1->Visible = false;
     }
     else {
         //MessageBox::Show("false", "info");
-        textBox1->Visible = true;
+        listBox1->Visible = true;
     }
     return System::Void();
 }
