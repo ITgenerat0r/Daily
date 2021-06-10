@@ -1,14 +1,14 @@
-#include <iostream>
-#include <sstream>
+//#include <iostream>
+//#include <sstream>
 #include <string>
-#include <map>
-#include <set>
-#include <iomanip>
-#include <algorithm>
+//#include <map>
+//#include <set>
+//#include <iomanip>
+//#include <algorithm>
 
 #include "function.h"
 
-using namespace std;
+// using namespace std;
 
 
 // конвертируем System::string^ в std::string

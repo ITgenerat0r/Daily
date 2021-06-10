@@ -104,9 +104,9 @@ private:
 
 
 
-bool operator< (const Date& lhs, const Date& rhs) {
-	return lhs.GetYear() * 372 + lhs.GetMonth() * 31 + lhs.GetDay() < rhs.GetYear() * 372 + rhs.GetMonth() * 31 + rhs.GetDay();
-};
+// bool operator< (const Date& lhs, const Date& rhs) {
+// 	return lhs.GetYear() * 372 + lhs.GetMonth() * 31 + lhs.GetDay() < rhs.GetYear() * 372 + rhs.GetMonth() * 31 + rhs.GetDay();
+// };
 
 
 
