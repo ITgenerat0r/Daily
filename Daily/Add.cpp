@@ -10,6 +10,8 @@ System::Void Daily::Add::button1_Click(System::Object^ sender, System::EventArgs
     std::string date;
     Convert_String_to_string(textBox1->Text->ToString(), date);
     //System::String^ date = textBox1->Text->ToString();
+
+    MessageBox::Show("Добавлено!", "Info");
     MainForm^ form = gcnew MainForm();
     this->Hide();
     form->Show();

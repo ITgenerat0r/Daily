@@ -81,7 +81,7 @@ void Daily::MainForm::Header()
 	DataGridViewTextBoxColumn^ c2 = gcnew DataGridViewTextBoxColumn();
 	c2->Name = "Events";
 	c2->HeaderText = "События";
-	c2->Width = 700;
+	c2->Width = dataGridView1->Width - 300;
 	dataGridView1->Columns->Add(c2);
 
 	dataGridView1->TopLeftHeaderCell->Value = "Данные"; // Table name
