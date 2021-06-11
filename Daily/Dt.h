@@ -31,10 +31,10 @@ public:
 		return day;
 	};
 
-	std::string Out() {
+	std::string Out(std::string symbol) {
 		std::stringstream ss;
 		std::string res;
-		ss << std::setw(2) << std::setfill('0') << day << "." << std::setw(2) << std::setfill('0') << month << "." << std::setw(4) << std::setfill('0') << year;
+		ss << std::setw(2) << std::setfill('0') << day << symbol << std::setw(2) << std::setfill('0') << month << symbol << std::setw(4) << std::setfill('0') << year;
 		ss >> res;
 		return res;
 	}
@@ -149,7 +149,7 @@ public:
 		for (const auto& k : base) {
 			Date date = k.first;
 			for (const std::string& event : k.second) {
-				output << "Add " << date.Out() << " " << event << std::endl;
+				output << "Add " << date.Out("-") << " " << event << std::endl;
 			}
 		}
 	}

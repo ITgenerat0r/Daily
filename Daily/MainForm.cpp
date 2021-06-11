@@ -22,9 +22,10 @@ void main(array<String^>^ args) {
 
 System::Void Daily::MainForm::выходToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (MessageBox::Show("Вы действительно хотите выйти?","Внимание!", MessageBoxButtons::YesNo) != System::Windows::Forms::DialogResult::No) {
-		Application::Exit();
+	if (MessageBox::Show("Сохранить данные в файл перев выходом?","Внимание!", MessageBoxButtons::YesNo) != System::Windows::Forms::DialogResult::No) {
+		db.Save();
 	}
+	Application::Exit();
 }
 
 System::Void Daily::MainForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
@@ -138,7 +139,7 @@ void Daily::MainForm::Show()
 	int i = 0;
 	for (const auto& k : db.Print()) {
 		Date dd = k.first;
-		std::string first = dd.Out();
+		std::string first = dd.Out(".");
 		for (const std::string& event : k.second) {
 			//cout << k.first << " " << event << endl;
 			dataGridView1->Rows[i]->HeaderCell->Value = Convert::ToString(i + 1);
@@ -163,6 +164,7 @@ System::Void Daily::MainForm::сохранитьToolStripMenuItem_Click(System::Object^ s
 System::Void Daily::MainForm::загрузитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	db.Load();
+	// MessageBox::Show(Convert::ToString(db.Size()), "info");
 	dataGridView1->ReadOnly = true;
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
@@ -176,8 +178,6 @@ System::Void Daily::MainForm::загрузитьToolStripMenuItem_Click(System::Object^ s
 
 	dataGridView1->AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders);
 	dataGridView1->AutoResizeColumns();
-
-	MessageBox::Show(Convert::ToString(db.Size()),"info");
 
 	return System::Void();
 }
