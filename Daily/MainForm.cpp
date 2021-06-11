@@ -52,7 +52,7 @@ System::Void Daily::MainForm::button2_Click(System::Object^ sender, System::Even
 	so << y << '-' << m << '-' << d;
 	so >> dt_white;
 	if (date.setDatefromString(dt_white)) {
-		if (MessageBox::Show("Удалить все события за выбранную дату?", "Внимание!", MessageBoxButtons::YesNo) != System::Windows::Forms::DialogResult::No) {
+		if (MessageBox::Show("Удалить все события за выбранную дату?", "Внимание!", MessageBoxButtons::YesNo) == System::Windows::Forms::DialogResult::No) {
 			db.DeleteEvent(date, ev);
 		}
 		else {
@@ -176,6 +176,8 @@ System::Void Daily::MainForm::загрузитьToolStripMenuItem_Click(System::Object^ s
 
 	dataGridView1->AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders);
 	dataGridView1->AutoResizeColumns();
+
+	MessageBox::Show(Convert::ToString(db.Size()),"info");
 
 	return System::Void();
 }
