@@ -1,5 +1,7 @@
 #pragma once
 
+#include "function.h"
+
 namespace Daily {
 
 	using namespace System;
@@ -34,17 +36,21 @@ namespace Daily {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ textBox1;
+
 	protected:
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::ListBox^ listBox1;
 	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox3;
+
+
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDown2;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDown3;
+	private: System::Windows::Forms::TextBox^ textBox1;
 
 	private:
 		/// <summary>
@@ -59,24 +65,21 @@ namespace Daily {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numericUpDown3 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(12, 29);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(46, 20);
-			this->textBox1->TabIndex = 0;
 			// 
 			// button1
 			// 
@@ -97,10 +100,12 @@ namespace Daily {
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(12, 93);
+			this->listBox1->Location = System::Drawing::Point(12, 171);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(379, 134);
+			this->listBox1->Size = System::Drawing::Size(379, 56);
 			this->listBox1->TabIndex = 2;
+			this->listBox1->Visible = false;
+			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Add::listBox1_SelectedIndexChanged);
 			// 
 			// button2
 			// 
@@ -114,20 +119,6 @@ namespace Daily {
 			this->button2->Text = L"Отменить";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Add::button2_Click);
-			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(64, 29);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(46, 20);
-			this->textBox2->TabIndex = 4;
-			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(116, 29);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(73, 20);
-			this->textBox3->TabIndex = 5;
 			// 
 			// label1
 			// 
@@ -167,25 +158,68 @@ namespace Daily {
 			this->label4->TabIndex = 9;
 			this->label4->Text = L"Событие";
 			// 
+			// numericUpDown1
+			// 
+			this->numericUpDown1->Location = System::Drawing::Point(12, 30);
+			this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 31, 0, 0, 0 });
+			this->numericUpDown1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->numericUpDown1->Name = L"numericUpDown1";
+			this->numericUpDown1->Size = System::Drawing::Size(37, 20);
+			this->numericUpDown1->TabIndex = 10;
+			this->numericUpDown1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			// 
+			// numericUpDown2
+			// 
+			this->numericUpDown2->Location = System::Drawing::Point(64, 30);
+			this->numericUpDown2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 12, 0, 0, 0 });
+			this->numericUpDown2->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->numericUpDown2->Name = L"numericUpDown2";
+			this->numericUpDown2->Size = System::Drawing::Size(37, 20);
+			this->numericUpDown2->TabIndex = 11;
+			this->numericUpDown2->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			this->numericUpDown2->ValueChanged += gcnew System::EventHandler(this, &Add::numericUpDown2_ValueChanged);
+			// 
+			// numericUpDown3
+			// 
+			this->numericUpDown3->Location = System::Drawing::Point(116, 30);
+			this->numericUpDown3->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000000, 0, 0, 0 });
+			this->numericUpDown3->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000000, 0, 0, System::Int32::MinValue });
+			this->numericUpDown3->Name = L"numericUpDown3";
+			this->numericUpDown3->Size = System::Drawing::Size(50, 20);
+			this->numericUpDown3->TabIndex = 12;
+			this->numericUpDown3->ValueChanged += gcnew System::EventHandler(this, &Add::numericUpDown3_ValueChanged);
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(12, 81);
+			this->textBox1->Multiline = true;
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(379, 158);
+			this->textBox1->TabIndex = 13;
+			// 
 			// Add
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(403, 288);
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->numericUpDown3);
+			this->Controls->Add(this->numericUpDown2);
+			this->Controls->Add(this->numericUpDown1);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox1);
 			this->MinimumSize = System::Drawing::Size(419, 296);
 			this->Name = L"Add";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Add";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -197,5 +231,9 @@ private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void numericUpDown2_ValueChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void numericUpDown3_ValueChanged(System::Object^ sender, System::EventArgs^ e);
 };
 }

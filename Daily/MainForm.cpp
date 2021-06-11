@@ -1,5 +1,3 @@
-#include "MainForm.h"
-//#include "MyForm.h"
 
 #include "MainForm.h"
 #include "Add.h"
@@ -8,6 +6,10 @@
 
 using namespace System;
 using namespace System::Windows::Forms;
+
+Database db;
+
+
 
 [STAThreadAttribute]
 void main(array<String^>^ args) {
@@ -53,12 +55,13 @@ System::Void Daily::MainForm::îÏðîãðàììåToolStripMenuItem_Click(System::Object^ 
 
 System::Void Daily::MainForm::MainForm_Shown(System::Object^ sender, System::EventArgs^ e)
 {
+	dataGridView1->ReadOnly = true;
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 
 	Header();
 
-	dataGridView1->RowCount = 5 + 1;
+	dataGridView1->RowCount = db.Size() + 1;
 	dataGridView1->ColumnCount = 2;
 
 	Show();
@@ -66,6 +69,7 @@ System::Void Daily::MainForm::MainForm_Shown(System::Object^ sender, System::Eve
 	dataGridView1->AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders);
 	dataGridView1->AutoResizeColumns();
 
+	control(db);
 
 	return System::Void();
 }
@@ -90,9 +94,20 @@ void Daily::MainForm::Header()
 
 void Daily::MainForm::Show()
 {
-	for (int i = 0; i < dataGridView1->RowCount - 1; i++) {
-		dataGridView1->Rows[i]->HeaderCell->Value = Convert::ToString(i + 1);
-
-
+	int i = 0;
+	for (const auto& k : db.Print()) {
+		Date dd = k.first;
+		std::string first = dd.Out();
+		for (const std::string& event : k.second) {
+			//cout << k.first << " " << event << endl;
+			dataGridView1->Rows[i]->HeaderCell->Value = Convert::ToString(i + 1);
+			dataGridView1->Rows[i]->Cells[0]->Value = Convert_string_to_String_r(first);
+			System::String^ text;
+			std::string ee = event;
+			Convert_string_to_String(ee, text);
+			dataGridView1->Rows[i]->Cells[1]->Value = text;
+			i++;
+		}
 	}
+	
 }

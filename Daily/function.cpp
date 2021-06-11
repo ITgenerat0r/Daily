@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 //#include <map>
-//#include <set>
+#include <set>
 //#include <iomanip>
 //#include <algorithm>
 
@@ -87,8 +87,7 @@ System::String^ Convert_char_to_String(char* ch) {
 
 
 
-void control() {
-	Database db;
+void control(Database& db) {
 	std::ifstream file("control.dt");
 	std::string command;
 	while (std::getline(file, command)) {
@@ -102,8 +101,10 @@ void control() {
 			Date date;
 			if (date.setDatefromString(dt)) {
 				db.AddEvent(date, ev);
+				System::Windows::Forms::MessageBox::Show("Событие добавлено!", "Info");
 			}
 			else {
+				System::Windows::Forms::MessageBox::Show("Не удалось добавить событие!", "Error");
 				return;
 			}
 			// cout << "Command: " << cm << "   Date: " << dt << "   Event: " << ev << endl;
@@ -162,5 +163,22 @@ void control() {
 		}
 	}
 
-	return;
+	return	;
+}
+
+
+
+int CheckDay(int m, int y) {
+	std::set<int> mm = {1, 3, 5, 7, 8, 10, 12};
+	if (mm.count(m)) {
+		return 31;
+	}
+	if (m == 2) {
+		if (y % 4 == 0) {
+			return 29;
+		}
+		return 28;
+	}
+	return 30;
+
 }

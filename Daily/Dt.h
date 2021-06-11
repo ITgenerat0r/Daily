@@ -30,6 +30,13 @@ public:
 		return day;
 	};
 
+	std::string Out() {
+		std::stringstream ss;
+		std::string res;
+		ss << std::setw(2) << std::setfill('0') << day << "." << std::setw(2) << std::setfill('0') << month << "." << std::setw(4) << std::setfill('0') << year;
+		ss >> res;
+		return res;
+	}
 
 	bool Is_next_sumbol_number(std::istream& c) {
 		if (c.peek() > 47 && c.peek() < 58 || c.peek() == 45 || c.peek() == 43) {
@@ -131,13 +138,17 @@ public:
 		}
 	};
 
-	//void Print() const {
-	//	for (const auto& k : base) {
-	//		for (const string& event : k.second) {
-	//			cout << k.first << " " << event << endl;
-	//		}
-	//	}
-	//};
+	int Size() {
+		return base.size();
+	};
+
+	
+
+
+
+	std::map<Date, std::set<std::string>> Print() const {
+		return base;
+	};
 
 private:
 	std::map<Date, std::set<std::string>> base;
