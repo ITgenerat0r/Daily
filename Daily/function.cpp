@@ -10,7 +10,6 @@
 #include "function.h"
 
 
-
 // using namespace std;
 
 
@@ -98,13 +97,18 @@ void control(Database& db) {
 		if (cm == "Add") {
 			std::string dt, ev;
 			input >> dt >> ev;
+			while (input) {
+				std::string tmp;
+				input >> tmp;
+				ev += " " + tmp;
+			}
 			Date date;
 			if (date.setDatefromString(dt)) {
 				db.AddEvent(date, ev);
-				System::Windows::Forms::MessageBox::Show("Событие добавлено!", "Info");
+				// System::Windows::Forms::MessageBox::Show("Событие добавлено!", "Info");
 			}
 			else {
-				System::Windows::Forms::MessageBox::Show("Не удалось добавить событие!", "Error");
+				System::Windows::Forms::MessageBox::Show("Something went wrong!", "Error");
 				return;
 			}
 			// cout << "Command: " << cm << "   Date: " << dt << "   Event: " << ev << endl;
@@ -117,6 +121,7 @@ void control(Database& db) {
 				if (input.peek() > -1) {
 					// cout << "'" << input.peek() << "'" << endl;
 					input >> ev;
+					setlocale(LC_ALL, "Rus");
 					if (db.DeleteEvent(date, ev)) {
 						//cout << "Deleted successfully\n";
 						System::Windows::Forms::MessageBox::Show("Deleted successfully!", "Info");

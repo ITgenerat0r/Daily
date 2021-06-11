@@ -7,6 +7,7 @@
 #include <set>
 #include <iomanip>
 #include <algorithm>
+#include <fstream>
 
 
 
@@ -143,7 +144,41 @@ public:
 	};
 
 	
+	void Save()const {
+		std::ofstream output("database.mdb");
+		for (const auto& k : base) {
+			Date date = k.first;
+			for (const std::string& event : k.second) {
+				output << "Add " << date.Out() << " " << event << std::endl;
+			}
+		}
+	}
 
+	void Load() {
+		std::ifstream file("database.mdb");
+		std::string command;
+		while (std::getline(file, command)) {
+			std::string cm;
+			std::stringstream input(command);
+			input >> cm;
+			if (cm == "Add") {
+				std::string dt, ev;
+				input >> dt >> ev;
+				while (input) {
+					std::string tmp;
+					input >> tmp;
+					ev += " " + tmp;
+				}
+				Date date;
+				if (date.setDatefromString(dt)) {
+					base[date].insert(ev);
+				}
+				else {
+					return;
+				}
+			}
+		}
+	}
 
 
 	std::map<Date, std::set<std::string>> Print() const {

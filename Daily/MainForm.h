@@ -43,6 +43,9 @@ namespace Daily {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
+	private: System::Windows::Forms::ToolStripMenuItem^ ôàéëToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ñîõğàíèòüToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ çàãğóçèòüToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -60,6 +63,9 @@ namespace Daily {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->âûõîäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->îÏğîãğàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ñîõğàíèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->çàãğóçèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -71,9 +77,9 @@ namespace Daily {
 			// 
 			// menuStrip1
 			// 
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->âûõîäToolStripMenuItem,
-					this->îÏğîãğàììåToolStripMenuItem
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->ôàéëToolStripMenuItem,
+					this->îÏğîãğàììåToolStripMenuItem, this->âûõîäToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -94,6 +100,30 @@ namespace Daily {
 			this->îÏğîãğàììåToolStripMenuItem->Size = System::Drawing::Size(94, 20);
 			this->îÏğîãğàììåToolStripMenuItem->Text = L"Î ïğîãğàììå";
 			this->îÏğîãğàììåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::îÏğîãğàììåToolStripMenuItem_Click);
+			// 
+			// ôàéëToolStripMenuItem
+			// 
+			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->ñîõğàíèòüToolStripMenuItem,
+					this->çàãğóçèòüToolStripMenuItem
+			});
+			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
+			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(48, 20);
+			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
+			// 
+			// ñîõğàíèòüToolStripMenuItem
+			// 
+			this->ñîõğàíèòüToolStripMenuItem->Name = L"ñîõğàíèòüToolStripMenuItem";
+			this->ñîõğàíèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->ñîõğàíèòüToolStripMenuItem->Text = L"Ñîõğàíèòü";
+			this->ñîõğàíèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ñîõğàíèòüToolStripMenuItem_Click);
+			// 
+			// çàãğóçèòüToolStripMenuItem
+			// 
+			this->çàãğóçèòüToolStripMenuItem->Name = L"çàãğóçèòüToolStripMenuItem";
+			this->çàãğóçèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->çàãğóçèòüToolStripMenuItem->Text = L"Çàãğóçèòü";
+			this->çàãğóçèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::çàãğóçèòüToolStripMenuItem_Click);
 			// 
 			// button1
 			// 
@@ -181,5 +211,7 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 private: System::Void MainForm_Shown(System::Object^ sender, System::EventArgs^ e);
 	private: void Header();
 	private: void Show();
+private: System::Void ñîõğàíèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void çàãğóçèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
