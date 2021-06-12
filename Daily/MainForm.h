@@ -1,5 +1,7 @@
 #pragma once
 
+#include "function.h"
+
 namespace Daily {
 
 	using namespace System;
@@ -41,6 +43,12 @@ namespace Daily {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
+
+
+
+
+
+
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
 	private: System::Windows::Forms::ToolStripMenuItem^ ôàéëToolStripMenuItem;
@@ -52,6 +60,8 @@ namespace Daily {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Button^ button4;
+
+
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
@@ -297,7 +307,7 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void MainForm_Shown(System::Object^ sender, System::EventArgs^ e);
 	private: void Header();
-	private: void Show();
+	private: void Show(Database& d);
 private: System::Void ñîõðàíèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void çàãðóçèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e);

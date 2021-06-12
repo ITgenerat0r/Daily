@@ -43,7 +43,7 @@ System::Void Daily::MainForm::button1_Click(System::Object^ sender, System::Even
 	os << tmp << std::endl;
 	//os << Convert_String_to_string_r(dtTmp.Month.ToString()) << std::endl;
 	//os << Convert_String_to_string_r(dtTmp.Day.ToString()) << std::endl;
-
+	os.close();
 	Add^ form = gcnew Add();
 	this->Hide();
 	form->Show();
@@ -93,7 +93,7 @@ System::Void Daily::MainForm::button2_Click(System::Object^ sender, System::Even
 	dataGridView1->RowCount = db.Size() + 1;
 	dataGridView1->ColumnCount = 2;
 
-	Show();
+	Show(db);
 
 	dataGridView1->AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders);
 	dataGridView1->AutoResizeColumns();
@@ -103,6 +103,11 @@ System::Void Daily::MainForm::button2_Click(System::Object^ sender, System::Even
 
 System::Void Daily::MainForm::button3_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	if (db.Size() == 0) {
+		MessageBox::Show("Нет никаких событий!", "Информация");
+		return System::Void();
+	}
+	
 	DateTime dtTmp = DateTime::Now;
 	std::ofstream os("date.dt");
 	std::string tmp;
@@ -114,7 +119,7 @@ System::Void Daily::MainForm::button3_Click(System::Object^ sender, System::Even
 	os << tmp << std::endl;
 	//os << Convert_String_to_string_r(dtTmp.Month.ToString()) << std::endl;
 	//os << Convert_String_to_string_r(dtTmp.Day.ToString()) << std::endl;
-
+	os.close();
 	Find^ form = gcnew Find();
 	this->Hide();
 	form->Show();
@@ -127,20 +132,30 @@ System::Void Daily::MainForm::оПрограммеToolStripMenuItem_Click(System::Object^ 
 
 System::Void Daily::MainForm::MainForm_Shown(System::Object^ sender, System::EventArgs^ e)
 {
-
-	control(db);
+	Database print;
+	print = control(db);
+	// clear control.dt
 	std::ofstream of("control.dt");
+	of.close();
 
 	dataGridView1->ReadOnly = true;
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 
 	Header();
+	if (print.Size() == 0) {
 
-	dataGridView1->RowCount = db.Size() + 1;
-	dataGridView1->ColumnCount = 2;
+		dataGridView1->RowCount = db.Size() + 1;
+		dataGridView1->ColumnCount = 2;
 
-	Show();
+		Show(db);
+	}
+	else {
+		dataGridView1->RowCount = print.Size() + 1;
+		dataGridView1->ColumnCount = 2;
+
+		Show(print);
+	}
 
 	dataGridView1->AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders);
 	dataGridView1->AutoResizeColumns();
@@ -168,10 +183,10 @@ void Daily::MainForm::Header()
 	dataGridView1->AutoResizeColumns(); // Выравнивание столбцов
 }
 
-void Daily::MainForm::Show()
+void Daily::MainForm::Show(Database& d)
 {
 	int i = 0;
-	for (const auto& k : db.Print()) {
+	for (const auto& k : d.Print()) {
 		Date dd = k.first;
 		std::string first = dd.Out(".");
 		for (const std::string& event : k.second) {
@@ -208,7 +223,7 @@ System::Void Daily::MainForm::загрузитьToolStripMenuItem_Click(System::Object^ s
 	dataGridView1->RowCount = db.Size() + 1;
 	dataGridView1->ColumnCount = 2;
 
-	Show();
+	Show(db);
 
 	dataGridView1->AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders);
 	dataGridView1->AutoResizeColumns();

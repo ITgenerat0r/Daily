@@ -15,5 +15,5 @@ System::String^ Convert_char_to_String(char ch); // конвертируем char в System::
 char* Convert_String_to_char(System::String^ string); // конвертируем System::string^ в char*
 System::String^ Convert_char_to_String(char* ch); // конвертируем char* в System::string^
 
-void control(Database& db);
+Database control(Database& db);
 int CheckDay(int m, int y);

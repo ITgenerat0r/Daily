@@ -86,9 +86,10 @@ System::String^ Convert_char_to_String(char* ch) {
 
 
 
-void control(Database& db) {
+Database control(Database& db) {
 	std::ifstream file("control.dt");
 	std::string command;
+	Database pr;
 	while (std::getline(file, command)) {
 		// Считайте команды с потока ввода и обработайте каждую
 		std::string cm;
@@ -109,7 +110,8 @@ void control(Database& db) {
 			}
 			else {
 				System::Windows::Forms::MessageBox::Show("Something went wrong!", "Error");
-				return;
+				file.close();
+				return pr;
 			}
 			// cout << "Command: " << cm << "   Date: " << dt << "   Event: " << ev << endl;
 		}
@@ -141,7 +143,8 @@ void control(Database& db) {
 				}
 			}
 			else {
-				return;
+				file.close();
+				return pr;
 			}
 			// cout << "Command: " << cm << "   Date: " << dt << "   Event: " << ev << endl;
 		}
@@ -150,10 +153,19 @@ void control(Database& db) {
 			input >> dt;
 			Date date;
 			if (date.setDatefromString(dt)) {
-				db.Find(date);
+				std::set<std::string> tmp;
+				tmp = db.Find(date);
+				if (tmp.size()) {
+					for (const auto& i : tmp) {
+						pr.AddEvent(date, i);
+					}
+					file.close();
+					return pr;
+				}
 			}
 			else {
-				return;
+				file.close();
+				return pr;
 			}
 			// cout << "Command: " << cm << "   Date: " << dt << endl;
 			// cout << ValidDate(dt) << endl;
@@ -164,11 +176,12 @@ void control(Database& db) {
 		}
 		else if (cm != "") {
 			//cout << "Unknown command: " << cm << std::endl;
-			return;
+			file.close();
+			return pr;
 		}
 	}
-
-	return	;
+	file.close();
+	return	pr;
 }
 
 

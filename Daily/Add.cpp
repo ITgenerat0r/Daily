@@ -21,7 +21,7 @@ System::Void Daily::Add::button1_Click(System::Object^ sender, System::EventArgs
     file << "Add " << Convert::ToInt32(numericUpDown3->Value) << "-" << Convert::ToInt32(numericUpDown2->Value) << "-" << Convert::ToInt32(numericUpDown1->Value) << " ";
     file << ev << std::endl;
     
-    
+    file.close();
     MainForm^ form = gcnew MainForm();
     this->Hide();
     form->Show();
@@ -69,5 +69,6 @@ System::Void Daily::Add::Add_Shown(System::Object^ sender, System::EventArgs^ e)
         temp = Convert_string_to_String_r(tmp);
         numericUpDown1->Value = Convert::ToDecimal(temp);
     }
+    input.close();
     return System::Void();
 }

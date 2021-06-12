@@ -128,6 +128,7 @@ namespace Daily {
 			// numericUpDown1
 			// 
 			this->numericUpDown1->Location = System::Drawing::Point(12, 34);
+			this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 31, 0, 0, 0 });
 			this->numericUpDown1->Name = L"numericUpDown1";
 			this->numericUpDown1->Size = System::Drawing::Size(31, 20);
 			this->numericUpDown1->TabIndex = 7;
@@ -135,16 +136,21 @@ namespace Daily {
 			// numericUpDown2
 			// 
 			this->numericUpDown2->Location = System::Drawing::Point(56, 34);
+			this->numericUpDown2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 12, 0, 0, 0 });
 			this->numericUpDown2->Name = L"numericUpDown2";
 			this->numericUpDown2->Size = System::Drawing::Size(31, 20);
 			this->numericUpDown2->TabIndex = 8;
+			this->numericUpDown2->ValueChanged += gcnew System::EventHandler(this, &Find::numericUpDown2_ValueChanged);
 			// 
 			// numericUpDown3
 			// 
 			this->numericUpDown3->Location = System::Drawing::Point(100, 34);
+			this->numericUpDown3->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, 0 });
+			this->numericUpDown3->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 100000, 0, 0, System::Int32::MinValue });
 			this->numericUpDown3->Name = L"numericUpDown3";
 			this->numericUpDown3->Size = System::Drawing::Size(45, 20);
 			this->numericUpDown3->TabIndex = 9;
+			this->numericUpDown3->ValueChanged += gcnew System::EventHandler(this, &Find::numericUpDown3_ValueChanged);
 			// 
 			// Find
 			// 
@@ -176,5 +182,7 @@ namespace Daily {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void Find_Shown(System::Object^ sender, System::EventArgs^ e);
+private: System::Void numericUpDown3_ValueChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void numericUpDown2_ValueChanged(System::Object^ sender, System::EventArgs^ e);
 };
 }

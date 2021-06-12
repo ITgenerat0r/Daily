@@ -131,11 +131,9 @@ public:
 		return 0;
 	};
 
-	void Find(const Date& date) const {
+	std::set<std::string> Find(const Date& date) const {
 		if (base.count(date)) {
-			for (const std::string& ev : base.at(date)) {
-				//cout << ev << endl;
-			}
+			return base.at(date);
 		}
 	};
 
@@ -156,6 +154,7 @@ public:
 				output << "Add " << date.Out("-") << " " << event << std::endl;
 			}
 		}
+		output.close();
 	}
 
 	void Load() {
@@ -178,10 +177,12 @@ public:
 					base[date].insert(ev);
 				}
 				else {
+					file.close();
 					return;
 				}
 			}
 		}
+		file.close();
 	}
 
 
