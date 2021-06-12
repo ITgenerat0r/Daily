@@ -103,6 +103,18 @@ System::Void Daily::MainForm::button2_Click(System::Object^ sender, System::Even
 
 System::Void Daily::MainForm::button3_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	DateTime dtTmp = DateTime::Now;
+	std::ofstream os("date.dt");
+	std::string tmp;
+	Convert_String_to_string(dtTmp.Year.ToString(), tmp);
+	os << tmp << std::endl;
+	Convert_String_to_string(dtTmp.Month.ToString(), tmp);
+	os << tmp << std::endl;
+	Convert_String_to_string(dtTmp.Day.ToString(), tmp);
+	os << tmp << std::endl;
+	//os << Convert_String_to_string_r(dtTmp.Month.ToString()) << std::endl;
+	//os << Convert_String_to_string_r(dtTmp.Day.ToString()) << std::endl;
+
 	Find^ form = gcnew Find();
 	this->Hide();
 	form->Show();

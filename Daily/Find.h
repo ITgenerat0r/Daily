@@ -34,16 +34,19 @@ namespace Daily {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ textBox1;
+
 	protected:
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::ListBox^ listBox1;
+
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDown2;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDown3;
+
+
 
 	private:
 		/// <summary>
@@ -58,30 +61,24 @@ namespace Daily {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numericUpDown3 = (gcnew System::Windows::Forms::NumericUpDown());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(12, 24);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(38, 20);
-			this->textBox1->TabIndex = 0;
 			// 
 			// button1
 			// 
-			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(274, 19);
+			this->button1->Location = System::Drawing::Point(24, 82);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(102, 26);
 			this->button1->TabIndex = 1;
@@ -89,23 +86,11 @@ namespace Daily {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Find::button1_Click);
 			// 
-			// listBox1
-			// 
-			this->listBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(12, 68);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(364, 160);
-			this->listBox1->TabIndex = 2;
-			// 
 			// button2
 			// 
-			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(260, 235);
+			this->button2->Location = System::Drawing::Point(148, 82);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(102, 26);
 			this->button2->TabIndex = 3;
@@ -140,38 +125,49 @@ namespace Daily {
 			this->label3->TabIndex = 6;
 			this->label3->Text = L"Год";
 			// 
-			// textBox2
+			// numericUpDown1
 			// 
-			this->textBox2->Location = System::Drawing::Point(56, 24);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(38, 20);
-			this->textBox2->TabIndex = 7;
+			this->numericUpDown1->Location = System::Drawing::Point(12, 34);
+			this->numericUpDown1->Name = L"numericUpDown1";
+			this->numericUpDown1->Size = System::Drawing::Size(31, 20);
+			this->numericUpDown1->TabIndex = 7;
 			// 
-			// textBox3
+			// numericUpDown2
 			// 
-			this->textBox3->Location = System::Drawing::Point(100, 24);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(62, 20);
-			this->textBox3->TabIndex = 8;
+			this->numericUpDown2->Location = System::Drawing::Point(56, 34);
+			this->numericUpDown2->Name = L"numericUpDown2";
+			this->numericUpDown2->Size = System::Drawing::Size(31, 20);
+			this->numericUpDown2->TabIndex = 8;
+			// 
+			// numericUpDown3
+			// 
+			this->numericUpDown3->Location = System::Drawing::Point(100, 34);
+			this->numericUpDown3->Name = L"numericUpDown3";
+			this->numericUpDown3->Size = System::Drawing::Size(45, 20);
+			this->numericUpDown3->TabIndex = 9;
 			// 
 			// Find
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(390, 276);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox2);
+			this->ClientSize = System::Drawing::Size(277, 131);
+			this->Controls->Add(this->numericUpDown3);
+			this->Controls->Add(this->numericUpDown2);
+			this->Controls->Add(this->numericUpDown1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button2);
-			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox1);
-			this->MinimumSize = System::Drawing::Size(374, 314);
+			this->MaximumSize = System::Drawing::Size(293, 169);
+			this->MinimumSize = System::Drawing::Size(293, 169);
 			this->Name = L"Find";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Find";
+			this->Shown += gcnew System::EventHandler(this, &Find::Find_Shown);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -179,5 +175,6 @@ namespace Daily {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Find_Shown(System::Object^ sender, System::EventArgs^ e);
 };
 }
