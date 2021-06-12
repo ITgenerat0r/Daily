@@ -217,6 +217,7 @@ namespace Daily {
 			this->Name = L"Add";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Add";
+			this->Shown += gcnew System::EventHandler(this, &Add::Add_Shown);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->EndInit();
@@ -235,5 +236,6 @@ private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, Syst
 }
 private: System::Void numericUpDown2_ValueChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void numericUpDown3_ValueChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Add_Shown(System::Object^ sender, System::EventArgs^ e);
 };
 }

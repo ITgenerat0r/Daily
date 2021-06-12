@@ -45,3 +45,29 @@ System::Void Daily::Add::numericUpDown3_ValueChanged(System::Object^ sender, Sys
     numericUpDown1->Maximum = CheckDay(Convert::ToInt32(numericUpDown2->Value), Convert::ToInt32(numericUpDown3->Value));
     return System::Void();
 }
+
+System::Void Daily::Add::Add_Shown(System::Object^ sender, System::EventArgs^ e)
+{
+    std::ifstream input("date.dt");
+    std::string tmp;
+    System::String^ temp;
+    // year
+    if (input) {
+        std::getline(input, tmp);
+        temp = Convert_string_to_String_r(tmp);
+        numericUpDown3->Value = Convert::ToDecimal(temp);
+    }
+    // month
+    if (input) {
+        std::getline(input, tmp);
+        temp = Convert_string_to_String_r(tmp);
+        numericUpDown2->Value = Convert::ToDecimal(temp);
+    }
+    // day
+    if (input) {
+        std::getline(input, tmp);
+        temp = Convert_string_to_String_r(tmp);
+        numericUpDown1->Value = Convert::ToDecimal(temp);
+    }
+    return System::Void();
+}

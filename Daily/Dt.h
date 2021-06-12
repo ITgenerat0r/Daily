@@ -140,7 +140,11 @@ public:
 	};
 
 	int Size() {
-		return base.size();
+		int res = 0;
+		for(const auto& k : base){
+			res += k.second.size();
+		}
+		return res;
 	};
 
 	

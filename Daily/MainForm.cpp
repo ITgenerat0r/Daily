@@ -3,6 +3,8 @@
 #include "Add.h"
 #include "Delete.h"
 #include "Find.h"
+#include <iomanip>
+//#include <Windows.h>
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -30,6 +32,18 @@ System::Void Daily::MainForm::‚˚ıÓ‰ToolStripMenuItem_Click(System::Object^ sende
 
 System::Void Daily::MainForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	DateTime dtTmp = DateTime::Now;
+	std::ofstream os("date.dt");
+	std::string tmp;
+	Convert_String_to_string(dtTmp.Year.ToString(), tmp);
+	os << tmp << std::endl;
+	Convert_String_to_string(dtTmp.Month.ToString(), tmp);
+	os << tmp << std::endl;
+	Convert_String_to_string(dtTmp.Day.ToString(), tmp);
+	os << tmp << std::endl;
+	//os << Convert_String_to_string_r(dtTmp.Month.ToString()) << std::endl;
+	//os << Convert_String_to_string_r(dtTmp.Day.ToString()) << std::endl;
+
 	Add^ form = gcnew Add();
 	this->Hide();
 	form->Show();
@@ -37,7 +51,13 @@ System::Void Daily::MainForm::button1_Click(System::Object^ sender, System::Even
 
 System::Void Daily::MainForm::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	if (dataGridView1->RowCount<2) { 
+		return System::Void();
+	}
 	int num = dataGridView1->CurrentCell->RowIndex;
+	if (num+1 >= dataGridView1->RowCount) {
+		return System::Void();
+	}
 	System::String ^ text1, ^ text2;
 	std::string dt_black, dt_white, ev, y, m, d;
 	text1 = dataGridView1->Rows[num]->Cells[0]->Value->ToString();
@@ -113,6 +133,8 @@ System::Void Daily::MainForm::MainForm_Shown(System::Object^ sender, System::Eve
 	dataGridView1->AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders);
 	dataGridView1->AutoResizeColumns();
 
+	timer1->Start();
+
 	return System::Void();
 }
 
@@ -179,5 +201,39 @@ System::Void Daily::MainForm::Á‡„ÛÁËÚ¸ToolStripMenuItem_Click(System::Object^ s
 	dataGridView1->AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders);
 	dataGridView1->AutoResizeColumns();
 
+	return System::Void();
+}
+
+System::Void Daily::MainForm::timer1_Tick(System::Object^ sender, System::EventArgs^ e)
+{
+	DateTime dtTmp = DateTime::Now;
+	std::stringstream time("");
+	System::String^ text;
+	std::string tmp;
+
+	// time
+	time << std::setw(2) << std::setfill('0') << dtTmp.Hour << ':';
+	time << std::setw(2) << std::setfill('0') << dtTmp.Minute << ':';
+	time << std::setw(2) << std::setfill('0') << dtTmp.Second;
+	time >> tmp;
+	text = Convert_string_to_String_r(tmp);
+	labelTime->Text = text;
+	// date
+	time.clear();
+	time << std::setw(2) << std::setfill('0') << dtTmp.Day << '.';
+	time << std::setw(2) << std::setfill('0') << dtTmp.Month << '.';
+	time << std::setw(4) << std::setfill('0') << dtTmp.Year;
+	time >> tmp;
+	text = Convert_string_to_String_r(tmp);
+	labelDate->Text = text;
+}
+
+System::Void Daily::MainForm::button4_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	std::string tmp;
+	std::stringstream ss("");
+	ss << db.Size();
+	ss >> tmp;
+	MessageBox::Show(Convert_string_to_String_r(tmp), "Debug");
 	return System::Void();
 }

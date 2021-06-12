@@ -46,12 +46,19 @@ namespace Daily {
 	private: System::Windows::Forms::ToolStripMenuItem^ ôàéëToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ñîõğàíèòüToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ çàãğóçèòüToolStripMenuItem;
+	private: System::Windows::Forms::Label^ labelTime;
+	private: System::Windows::Forms::Label^ labelDate;
+	private: System::Windows::Forms::Timer^ timer1;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Button^ button4;
+	private: System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
 		/// Îáÿçàòåëüíàÿ ïåğåìåííàÿ êîíñòğóêòîğà.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -60,17 +67,24 @@ namespace Daily {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->âûõîäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->îÏğîãğàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ñîõğàíèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->çàãğóçèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->îÏğîãğàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->âûõîäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
+			this->labelTime = (gcnew System::Windows::Forms::Label());
+			this->labelDate = (gcnew System::Windows::Forms::Label());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
@@ -87,20 +101,6 @@ namespace Daily {
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
-			// âûõîäToolStripMenuItem
-			// 
-			this->âûõîäToolStripMenuItem->Name = L"âûõîäToolStripMenuItem";
-			this->âûõîäToolStripMenuItem->Size = System::Drawing::Size(53, 20);
-			this->âûõîäToolStripMenuItem->Text = L"Âûõîä";
-			this->âûõîäToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::âûõîäToolStripMenuItem_Click);
-			// 
-			// îÏğîãğàììåToolStripMenuItem
-			// 
-			this->îÏğîãğàììåToolStripMenuItem->Name = L"îÏğîãğàììåToolStripMenuItem";
-			this->îÏğîãğàììåToolStripMenuItem->Size = System::Drawing::Size(94, 20);
-			this->îÏğîãğàììåToolStripMenuItem->Text = L"Î ïğîãğàììå";
-			this->îÏğîãğàììåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::îÏğîãğàììåToolStripMenuItem_Click);
-			// 
 			// ôàéëToolStripMenuItem
 			// 
 			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
@@ -114,16 +114,30 @@ namespace Daily {
 			// ñîõğàíèòüToolStripMenuItem
 			// 
 			this->ñîõğàíèòüToolStripMenuItem->Name = L"ñîõğàíèòüToolStripMenuItem";
-			this->ñîõğàíèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->ñîõğàíèòüToolStripMenuItem->Size = System::Drawing::Size(132, 22);
 			this->ñîõğàíèòüToolStripMenuItem->Text = L"Ñîõğàíèòü";
 			this->ñîõğàíèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ñîõğàíèòüToolStripMenuItem_Click);
 			// 
 			// çàãğóçèòüToolStripMenuItem
 			// 
 			this->çàãğóçèòüToolStripMenuItem->Name = L"çàãğóçèòüToolStripMenuItem";
-			this->çàãğóçèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->çàãğóçèòüToolStripMenuItem->Size = System::Drawing::Size(132, 22);
 			this->çàãğóçèòüToolStripMenuItem->Text = L"Çàãğóçèòü";
 			this->çàãğóçèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::çàãğóçèòüToolStripMenuItem_Click);
+			// 
+			// îÏğîãğàììåToolStripMenuItem
+			// 
+			this->îÏğîãğàììåToolStripMenuItem->Name = L"îÏğîãğàììåToolStripMenuItem";
+			this->îÏğîãğàììåToolStripMenuItem->Size = System::Drawing::Size(94, 20);
+			this->îÏğîãğàììåToolStripMenuItem->Text = L"Î ïğîãğàììå";
+			this->îÏğîãğàììåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::îÏğîãğàììåToolStripMenuItem_Click);
+			// 
+			// âûõîäToolStripMenuItem
+			// 
+			this->âûõîäToolStripMenuItem->Name = L"âûõîäToolStripMenuItem";
+			this->âûõîäToolStripMenuItem->Size = System::Drawing::Size(53, 20);
+			this->âûõîäToolStripMenuItem->Text = L"Âûõîä";
+			this->âûõîäToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::âûõîäToolStripMenuItem_Click);
 			// 
 			// button1
 			// 
@@ -175,11 +189,84 @@ namespace Daily {
 			this->dataGridView1->Size = System::Drawing::Size(736, 379);
 			this->dataGridView1->TabIndex = 4;
 			// 
+			// labelTime
+			// 
+			this->labelTime->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->labelTime->AutoSize = true;
+			this->labelTime->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labelTime->Location = System::Drawing::Point(830, 374);
+			this->labelTime->Name = L"labelTime";
+			this->labelTime->Size = System::Drawing::Size(30, 13);
+			this->labelTime->TabIndex = 5;
+			this->labelTime->Text = L"time";
+			this->labelTime->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			// 
+			// labelDate
+			// 
+			this->labelDate->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->labelDate->AutoSize = true;
+			this->labelDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->labelDate->Location = System::Drawing::Point(830, 396);
+			this->labelDate->Name = L"labelDate";
+			this->labelDate->Size = System::Drawing::Size(32, 13);
+			this->labelDate->TabIndex = 6;
+			this->labelDate->Text = L"date";
+			this->labelDate->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->labelDate->Click += gcnew System::EventHandler(this, &MainForm::labelDate_Click);
+			// 
+			// timer1
+			// 
+			this->timer1->Tick += gcnew System::EventHandler(this, &MainForm::timer1_Tick);
+			// 
+			// label1
+			// 
+			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(766, 374);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(45, 13);
+			this->label1->TabIndex = 7;
+			this->label1->Text = L"Âğåìÿ";
+			// 
+			// label2
+			// 
+			this->label2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label2->Location = System::Drawing::Point(766, 396);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(37, 13);
+			this->label2->TabIndex = 8;
+			this->label2->Text = L"Äàòà";
+			// 
+			// button4
+			// 
+			this->button4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button4->Location = System::Drawing::Point(790, 225);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(107, 43);
+			this->button4->TabIndex = 9;
+			this->button4->Text = L"Debug";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MainForm::button4_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(941, 418);
+			this->Controls->Add(this->button4);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->labelDate);
+			this->Controls->Add(this->labelTime);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -213,5 +300,9 @@ private: System::Void MainForm_Shown(System::Object^ sender, System::EventArgs^ 
 	private: void Show();
 private: System::Void ñîõğàíèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void çàãğóçèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-};
+private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e);
+private: System::Void labelDate_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+ };
 }
