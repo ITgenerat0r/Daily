@@ -76,6 +76,7 @@ namespace Daily {
 			// 
 			// button1
 			// 
+			this->button1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button1->Location = System::Drawing::Point(24, 82);
@@ -83,11 +84,12 @@ namespace Daily {
 			this->button1->Size = System::Drawing::Size(102, 26);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Найти";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &Find::button1_Click);
 			// 
 			// button2
 			// 
+			this->button2->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button2->Location = System::Drawing::Point(148, 82);
@@ -95,7 +97,7 @@ namespace Daily {
 			this->button2->Size = System::Drawing::Size(102, 26);
 			this->button2->TabIndex = 3;
 			this->button2->Text = L"Отменить";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &Find::button2_Click);
 			// 
 			// label1
@@ -127,6 +129,7 @@ namespace Daily {
 			// 
 			// numericUpDown1
 			// 
+			this->numericUpDown1->BackColor = System::Drawing::SystemColors::Window;
 			this->numericUpDown1->Location = System::Drawing::Point(12, 34);
 			this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 31, 0, 0, 0 });
 			this->numericUpDown1->Name = L"numericUpDown1";
@@ -156,6 +159,7 @@ namespace Daily {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->ClientSize = System::Drawing::Size(277, 131);
 			this->Controls->Add(this->numericUpDown3);
 			this->Controls->Add(this->numericUpDown2);

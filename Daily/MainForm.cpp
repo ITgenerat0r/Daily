@@ -266,10 +266,25 @@ System::Void Daily::MainForm::timer1_Tick(System::Object^ sender, System::EventA
 
 System::Void Daily::MainForm::button4_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	std::string tmp;
+	/*std::string tmp;
 	std::stringstream ss("");
 	ss << db.Size();
 	ss >> tmp;
-	MessageBox::Show(Convert_string_to_String_r(tmp), "Debug");
+	MessageBox::Show(Convert_string_to_String_r(tmp), "Debug");*/
+
+	dataGridView1->ReadOnly = true;
+	dataGridView1->Rows->Clear();
+	dataGridView1->Columns->Clear();
+
+	Header();
+
+	dataGridView1->RowCount = db.Size() + 1;
+	dataGridView1->ColumnCount = 2;
+
+	Show(db);
+
+	dataGridView1->AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders);
+	dataGridView1->AutoResizeColumns();
+
 	return System::Void();
 }

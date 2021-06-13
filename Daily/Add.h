@@ -84,6 +84,7 @@ namespace Daily {
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->button1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button1->Location = System::Drawing::Point(154, 245);
@@ -91,7 +92,7 @@ namespace Daily {
 			this->button1->Size = System::Drawing::Size(101, 31);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Добавить";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &Add::button1_Click);
 			// 
 			// listBox1
@@ -110,6 +111,7 @@ namespace Daily {
 			// button2
 			// 
 			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			this->button2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button2->Location = System::Drawing::Point(261, 245);
@@ -117,7 +119,7 @@ namespace Daily {
 			this->button2->Size = System::Drawing::Size(113, 31);
 			this->button2->TabIndex = 3;
 			this->button2->Text = L"Отменить";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &Add::button2_Click);
 			// 
 			// label1
@@ -201,6 +203,7 @@ namespace Daily {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->ClientSize = System::Drawing::Size(403, 288);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->numericUpDown3);

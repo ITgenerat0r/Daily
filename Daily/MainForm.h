@@ -78,6 +78,9 @@ namespace Daily {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ñîõðàíèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -101,13 +104,14 @@ namespace Daily {
 			// 
 			// menuStrip1
 			// 
+			this->menuStrip1->BackColor = System::Drawing::Color::CadetBlue;
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->ôàéëToolStripMenuItem,
 					this->îÏðîãðàììåToolStripMenuItem, this->âûõîäToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(941, 24);
+			this->menuStrip1->Size = System::Drawing::Size(872, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -123,15 +127,17 @@ namespace Daily {
 			// 
 			// ñîõðàíèòüToolStripMenuItem
 			// 
+			this->ñîõðàíèòüToolStripMenuItem->BackColor = System::Drawing::Color::CadetBlue;
 			this->ñîõðàíèòüToolStripMenuItem->Name = L"ñîõðàíèòüToolStripMenuItem";
-			this->ñîõðàíèòüToolStripMenuItem->Size = System::Drawing::Size(132, 22);
+			this->ñîõðàíèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->ñîõðàíèòüToolStripMenuItem->Text = L"Ñîõðàíèòü";
 			this->ñîõðàíèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ñîõðàíèòüToolStripMenuItem_Click);
 			// 
 			// çàãðóçèòüToolStripMenuItem
 			// 
+			this->çàãðóçèòüToolStripMenuItem->BackColor = System::Drawing::Color::CadetBlue;
 			this->çàãðóçèòüToolStripMenuItem->Name = L"çàãðóçèòüToolStripMenuItem";
-			this->çàãðóçèòüToolStripMenuItem->Size = System::Drawing::Size(132, 22);
+			this->çàãðóçèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->çàãðóçèòüToolStripMenuItem->Text = L"Çàãðóçèòü";
 			this->çàãðóçèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::çàãðóçèòüToolStripMenuItem_Click);
 			// 
@@ -152,40 +158,46 @@ namespace Daily {
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->button1->BackColor = System::Drawing::SystemColors::ControlDark;
+			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::AliceBlue;
+			this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::White;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(790, 57);
+			this->button1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button1->Location = System::Drawing::Point(721, 57);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(107, 43);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Äîáàâèòü";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
 			// 
 			// button2
 			// 
 			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->button2->BackColor = System::Drawing::SystemColors::ControlDark;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(790, 106);
+			this->button2->Location = System::Drawing::Point(721, 106);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(107, 43);
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Óäàëèòü";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &MainForm::button2_Click);
 			// 
 			// button3
 			// 
 			this->button3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->button3->BackColor = System::Drawing::SystemColors::ControlDark;
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button3->Location = System::Drawing::Point(790, 155);
+			this->button3->Location = System::Drawing::Point(721, 155);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(107, 43);
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Íàéòè";
-			this->button3->UseVisualStyleBackColor = true;
+			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &MainForm::button3_Click);
 			// 
 			// dataGridView1
@@ -193,10 +205,29 @@ namespace Daily {
 			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridView1->BackgroundColor = System::Drawing::SystemColors::ActiveBorder;
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::CadetBlue;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::Color::Gray;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle2->BackColor = System::Drawing::Color::AliceBlue;
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			dataGridViewCellStyle2->ForeColor = System::Drawing::Color::Black;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::Color::DarkTurquoise;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle2;
 			this->dataGridView1->Location = System::Drawing::Point(12, 27);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(736, 379);
+			this->dataGridView1->Size = System::Drawing::Size(667, 374);
 			this->dataGridView1->TabIndex = 4;
 			// 
 			// labelTime
@@ -205,7 +236,7 @@ namespace Daily {
 			this->labelTime->AutoSize = true;
 			this->labelTime->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->labelTime->Location = System::Drawing::Point(830, 374);
+			this->labelTime->Location = System::Drawing::Point(761, 369);
 			this->labelTime->Name = L"labelTime";
 			this->labelTime->Size = System::Drawing::Size(30, 13);
 			this->labelTime->TabIndex = 5;
@@ -218,7 +249,7 @@ namespace Daily {
 			this->labelDate->AutoSize = true;
 			this->labelDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->labelDate->Location = System::Drawing::Point(830, 396);
+			this->labelDate->Location = System::Drawing::Point(761, 391);
 			this->labelDate->Name = L"labelDate";
 			this->labelDate->Size = System::Drawing::Size(32, 13);
 			this->labelDate->TabIndex = 6;
@@ -236,7 +267,7 @@ namespace Daily {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(766, 374);
+			this->label1->Location = System::Drawing::Point(697, 369);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(45, 13);
 			this->label1->TabIndex = 7;
@@ -248,7 +279,7 @@ namespace Daily {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(766, 396);
+			this->label2->Location = System::Drawing::Point(697, 391);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(37, 13);
 			this->label2->TabIndex = 8;
@@ -257,21 +288,25 @@ namespace Daily {
 			// button4
 			// 
 			this->button4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->button4->BackColor = System::Drawing::SystemColors::ControlDark;
 			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button4->Location = System::Drawing::Point(790, 225);
+			this->button4->Location = System::Drawing::Point(721, 225);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(107, 43);
 			this->button4->TabIndex = 9;
-			this->button4->Text = L"Debug";
-			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Text = L"Îáíîâèòü";
+			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &MainForm::button4_Click);
 			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(941, 418);
+			this->BackColor = System::Drawing::SystemColors::Control;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->ClientSize = System::Drawing::Size(872, 413);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -282,6 +317,7 @@ namespace Daily {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->menuStrip1);
+			this->ForeColor = System::Drawing::Color::Black;
 			this->MainMenuStrip = this->menuStrip1;
 			this->MinimumSize = System::Drawing::Size(483, 293);
 			this->Name = L"MainForm";
