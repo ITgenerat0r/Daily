@@ -123,7 +123,6 @@ Database control(Database& db) {
 				if (input.peek() > -1) {
 					// cout << "'" << input.peek() << "'" << endl;
 					input >> ev;
-					setlocale(LC_ALL, "Rus");
 					if (db.DeleteEvent(date, ev)) {
 						//cout << "Deleted successfully\n";
 						System::Windows::Forms::MessageBox::Show("Deleted successfully!", "Info");
@@ -138,7 +137,6 @@ Database control(Database& db) {
 					System::String^ msg = Convert_string_to_String_r(text) + Convert::ToString(db.DeleteDate(date));
 					text = " successfuly!";
 					msg += Convert_string_to_String_r(text);
-
 					System::Windows::Forms::MessageBox::Show(msg, "Info");
 				}
 			}

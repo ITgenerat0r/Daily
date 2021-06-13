@@ -135,6 +135,7 @@ public:
 		if (base.count(date)) {
 			return base.at(date);
 		}
+		return {};
 	};
 
 	int Size() {

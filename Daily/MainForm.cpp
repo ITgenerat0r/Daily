@@ -24,7 +24,7 @@ void main(array<String^>^ args) {
 
 System::Void Daily::MainForm::выходToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (MessageBox::Show("Сохранить данные в файл перев выходом?","Внимание!", MessageBoxButtons::YesNo) != System::Windows::Forms::DialogResult::No) {
+	if (MessageBox::Show("Сохранить данные в файл перед выходом?","Внимание!", MessageBoxButtons::YesNo) != System::Windows::Forms::DialogResult::No) {
 		db.Save();
 	}
 	Application::Exit();
@@ -137,12 +137,18 @@ System::Void Daily::MainForm::MainForm_Shown(System::Object^ sender, System::Eve
 	// clear control.dt
 	std::ofstream of("control.dt");
 	of.close();
-
 	dataGridView1->ReadOnly = true;
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 
 	Header();
+
+	std::string tmp;
+	std::stringstream ss("");
+	ss << print.Size();
+	ss >> tmp;
+	MessageBox::Show(Convert_string_to_String_r(tmp), "Debug");
+
 	if (print.Size() == 0) {
 
 		dataGridView1->RowCount = db.Size() + 1;
