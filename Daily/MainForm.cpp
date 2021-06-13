@@ -134,23 +134,26 @@ System::Void Daily::MainForm::MainForm_Shown(System::Object^ sender, System::Eve
 {
 	Database print;
 	print = control(db);
+
+	std::ifstream fi("control.dt");
+	std::string cm;
+	fi >> cm;
+	fi.close();
+
 	// clear control.dt
 	std::ofstream of("control.dt");
 	of.close();
+
 	dataGridView1->ReadOnly = true;
 	dataGridView1->Rows->Clear();
 	dataGridView1->Columns->Clear();
 
 	Header();
 
-	std::string tmp;
-	std::stringstream ss("");
-	ss << print.Size();
-	ss >> tmp;
-	MessageBox::Show(Convert_string_to_String_r(tmp), "Debug");
-
 	if (print.Size() == 0) {
-
+		if (cm == "Find") {
+			MessageBox::Show("Нет событий за указанную дату!","Информация");
+		}
 		dataGridView1->RowCount = db.Size() + 1;
 		dataGridView1->ColumnCount = 2;
 
