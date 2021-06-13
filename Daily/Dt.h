@@ -34,7 +34,12 @@ public:
 	std::string Out(std::string symbol) {
 		std::stringstream ss;
 		std::string res;
-		ss << std::setw(2) << std::setfill('0') << day << symbol << std::setw(2) << std::setfill('0') << month << symbol << std::setw(4) << std::setfill('0') << year;
+		if (symbol == "-") {
+			ss << std::setw(2) << std::setfill('0') << year << symbol << std::setw(2) << std::setfill('0') << month << symbol << std::setw(4) << std::setfill('0') << day;
+		}
+		else {
+			ss << std::setw(2) << std::setfill('0') << day << symbol << std::setw(2) << std::setfill('0') << month << symbol << std::setw(4) << std::setfill('0') << year;
+		}
 		ss >> res;
 		return res;
 	}
@@ -161,6 +166,7 @@ public:
 	void Load() {
 		std::ifstream file("database.mdb");
 		std::string command;
+		int count = 0;
 		while (std::getline(file, command)) {
 			std::string cm;
 			std::stringstream input(command);
@@ -174,16 +180,28 @@ public:
 					ev += " " + tmp;
 				}
 				Date date;
+				/////////////////////////////////////////////////////////
+				//System::String^ ss = gcnew System::String(dt.c_str());
+				//System::Windows::Forms::MessageBox::Show(ss, "Debug");
 				if (date.setDatefromString(dt)) {
 					base[date].insert(ev);
 				}
 				else {
-					file.close();
-					return;
+					// Wrong date
+					count++;
 				}
 			}
 		}
 		file.close();
+		if (count) {
+			std::stringstream ss;
+			ss << count;
+			std::string text;
+			ss >> text;
+			text = "Чтение занных завершилось с ошибками: " + text;
+			System::String^ s = gcnew System::String(text.c_str());
+			System::Windows::Forms::MessageBox::Show(s,"Debug");
+		}
 	}
 
 
