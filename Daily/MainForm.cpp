@@ -14,7 +14,7 @@ Database db;
 
 
 [STAThreadAttribute]
-void main(array<String^>^ args) {
+void WinMain() {  // array<String^>^ args
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 
