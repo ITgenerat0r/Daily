@@ -127,7 +127,7 @@ System::Void Daily::MainForm::button3_Click(System::Object^ sender, System::Even
 
 System::Void Daily::MainForm::оПрограммеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	MessageBox::Show("Designed by ITgenerat0r", "Info");
+	MessageBox::Show("Программа предначначена для удобного планирования дел\n\nПрограмма разработана \n студенткой коллежда Радиоэлектронники им. П.Н. Яблочкова\nНадеиной Анастасии", "Info");
 }
 
 System::Void Daily::MainForm::MainForm_Shown(System::Object^ sender, System::EventArgs^ e)
@@ -287,4 +287,9 @@ System::Void Daily::MainForm::button4_Click(System::Object^ sender, System::Even
 	dataGridView1->AutoResizeColumns();
 
 	return System::Void();
+}
+
+System::Void Daily::MainForm::MainForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e)
+{
+	Application::Exit();
 }

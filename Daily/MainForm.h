@@ -129,7 +129,7 @@ namespace Daily {
 			// 
 			this->ñîõðàíèòüToolStripMenuItem->BackColor = System::Drawing::Color::CadetBlue;
 			this->ñîõðàíèòüToolStripMenuItem->Name = L"ñîõðàíèòüToolStripMenuItem";
-			this->ñîõðàíèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->ñîõðàíèòüToolStripMenuItem->Size = System::Drawing::Size(132, 22);
 			this->ñîõðàíèòüToolStripMenuItem->Text = L"Ñîõðàíèòü";
 			this->ñîõðàíèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::ñîõðàíèòüToolStripMenuItem_Click);
 			// 
@@ -137,7 +137,7 @@ namespace Daily {
 			// 
 			this->çàãðóçèòüToolStripMenuItem->BackColor = System::Drawing::Color::CadetBlue;
 			this->çàãðóçèòüToolStripMenuItem->Name = L"çàãðóçèòüToolStripMenuItem";
-			this->çàãðóçèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->çàãðóçèòüToolStripMenuItem->Size = System::Drawing::Size(132, 22);
 			this->çàãðóçèòüToolStripMenuItem->Text = L"Çàãðóçèòü";
 			this->çàãðóçèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::çàãðóçèòüToolStripMenuItem_Click);
 			// 
@@ -234,11 +234,11 @@ namespace Daily {
 			// 
 			this->labelTime->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->labelTime->AutoSize = true;
-			this->labelTime->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->labelTime->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->labelTime->Location = System::Drawing::Point(761, 369);
+			this->labelTime->Location = System::Drawing::Point(749, 360);
 			this->labelTime->Name = L"labelTime";
-			this->labelTime->Size = System::Drawing::Size(30, 13);
+			this->labelTime->Size = System::Drawing::Size(43, 20);
 			this->labelTime->TabIndex = 5;
 			this->labelTime->Text = L"time";
 			this->labelTime->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
@@ -247,11 +247,11 @@ namespace Daily {
 			// 
 			this->labelDate->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->labelDate->AutoSize = true;
-			this->labelDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->labelDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->labelDate->Location = System::Drawing::Point(761, 391);
+			this->labelDate->Location = System::Drawing::Point(749, 382);
 			this->labelDate->Name = L"labelDate";
-			this->labelDate->Size = System::Drawing::Size(32, 13);
+			this->labelDate->Size = System::Drawing::Size(45, 20);
 			this->labelDate->TabIndex = 6;
 			this->labelDate->Text = L"date";
 			this->labelDate->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
@@ -265,11 +265,11 @@ namespace Daily {
 			// 
 			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(697, 369);
+			this->label1->Location = System::Drawing::Point(685, 360);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(45, 13);
+			this->label1->Size = System::Drawing::Size(63, 20);
 			this->label1->TabIndex = 7;
 			this->label1->Text = L"Âðåìÿ";
 			// 
@@ -277,11 +277,11 @@ namespace Daily {
 			// 
 			this->label2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(697, 391);
+			this->label2->Location = System::Drawing::Point(685, 382);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(37, 13);
+			this->label2->Size = System::Drawing::Size(52, 20);
 			this->label2->TabIndex = 8;
 			this->label2->Text = L"Äàòà";
 			// 
@@ -323,6 +323,7 @@ namespace Daily {
 			this->Name = L"MainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Ìåíþ";
+			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &MainForm::MainForm_FormClosed);
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->Shown += gcnew System::EventHandler(this, &MainForm::MainForm_Shown);
 			this->menuStrip1->ResumeLayout(false);
@@ -350,5 +351,6 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e);
 private: System::Void labelDate_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
- };
+ private: System::Void MainForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
+};
 }

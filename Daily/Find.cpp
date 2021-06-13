@@ -13,6 +13,7 @@ System::Void Daily::Find::button1_Click(System::Object^ sender, System::EventArg
     MainForm^ form = gcnew MainForm();
     this->Hide();
     form->Show();
+    this->Close();
 }
 
 System::Void Daily::Find::button2_Click(System::Object^ sender, System::EventArgs^ e)
@@ -20,6 +21,7 @@ System::Void Daily::Find::button2_Click(System::Object^ sender, System::EventArg
     MainForm^ form = gcnew MainForm();
     this->Hide();
     form->Show();
+    this->Close();
 }
 
 System::Void Daily::Find::Find_Shown(System::Object^ sender, System::EventArgs^ e)
